@@ -1,5 +1,5 @@
 (function () {
-    angular.module('ng-floating-label.directive')
+    angular.module('ng-floating-label.directives')
     .directive("ngModel", function() {
         return {
             restrict: 'A',

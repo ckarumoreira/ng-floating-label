@@ -1,0 +1,30 @@
+<html>
+    <head>
+        <link href="../dist/ng-floating-label.min.css" type="text/css" rel="stylesheet" />
+        <style>
+            body {
+                font-family: sans-serif;
+            }
+        </style>
+    </head>
+    <body ng-app="app">
+        <div ng-controller="Controller">
+            <ng-floating-label placeholder="'Value A'">
+                <input type="text" ng-model="value_a" />
+            </ng-floating-label>
+            <ng-floating-label placeholder="'Value B'">
+                <input type="text" ng-model="value_b" />
+            </ng-floating-label>
+        </div>
+        
+        <script src="../node_modules/angular/angular.min.js"></script>
+        <script src="../dist/js/ng-floating-label.js"></script>
+        <script>
+            angular.module("app", ["ng-floating-label"])
+            .controller("Controller", function ($scope) {
+                $scope.value_a = "Starting Value";
+                $scope.value_b = "";
+            })
+        </script>
+    </body>
+</html>

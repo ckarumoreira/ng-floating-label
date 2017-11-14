@@ -30,6 +30,7 @@ gulp.task("minify-css", ["css"], () => {
 
 gulp.task("minify-js", ["js"], () => {
     gulp.src([ "dist/js/ng-floating-label.js" ])
+        .pipe(concat("ng-floating-label.min.js"))
         .pipe(uglify().on('error', function (e) { console.log(e); }))
         .pipe(gulp.dest("dist"));
 });

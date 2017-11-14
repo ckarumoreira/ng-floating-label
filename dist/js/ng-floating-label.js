@@ -3,14 +3,17 @@
     angular.module('ng-floating-label.directives', []);
 })();
 (function () {
-    angular.module('ng-floating-label.directive').directive('ngFloatingLabel', [function () {
+    angular.module('ng-floating-label.directives').directive('ngFloatingLabel', [function () {
         return {
             template: '<label ng-bind="placeholder"></label><ng-transclude />',
+            transclude: true,
             restrict: 'E',
             scope: {
                 placeholder: '<'
             },
             link: function link(scope, element, attributes) {
+                var edit = void 0;
+
                 function OnFocus() {
                     element.addClass('focused');
                 }
@@ -18,7 +21,7 @@
                     element.removeClass('focused');
                 }
                 function OnChange() {
-                    var value = element.find('input,select').val();
+                    var value = edit.val();
                     if (value == '' || value == null || typeof value === 'undefined') {
                         element.removeClass('filled');
                     } else {
@@ -26,9 +29,17 @@
                     }
                 }
 
-                element.on('focus', 'input', OnFocus);
-                element.on('blur', 'input', OnBlur);
-                element.on('change', 'input', OnChange);
+                debugger;
+
+                if (element.find('input').length > 0) {
+                    edit = element.find('input');
+                } else if (element.find('select').length > 0) {
+                    edit = element.find('select');
+                }
+
+                edit.on('focus', OnFocus);
+                edit.on('blur', OnBlur);
+                edit.on('change', OnChange);
 
                 OnChange();
             }
@@ -36,7 +47,7 @@
     }]);
 })();
 (function () {
-    angular.module('ng-floating-label.directive').directive("ngModel", function () {
+    angular.module('ng-floating-label.directives').directive("ngModel", function () {
         return {
             restrict: 'A',
             priority: -1,
