@@ -8,12 +8,12 @@
         </style>
     </head>
     <body ng-app="app">
-        <div ng-controller="Controller">
+        <div ng-controller="Controller as ctrl">
             <ng-floating-label placeholder="'Value A'">
-                <input type="text" ng-model="value_a" />
+                <input type="text" ng-model="ctrl.value_a" />
             </ng-floating-label>
             <ng-floating-label placeholder="'Value B'">
-                <input type="text" ng-model="value_b" />
+                <input type="text" ng-model="ctrl.value_b" />
             </ng-floating-label>
         </div>
         
@@ -22,8 +22,8 @@
         <script>
             angular.module("app", ["ng-floating-label"])
             .controller("Controller", function ($scope) {
-                $scope.value_a = "Starting Value";
-                $scope.value_b = "";
+                this.value_a = "Starting Value";
+                this.value_b = "";
             })
         </script>
     </body>

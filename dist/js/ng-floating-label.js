@@ -29,19 +29,19 @@
                     }
                 }
 
-                debugger;
+                element.ready(function () {
+                    if (element.find('input').length > 0) {
+                        edit = element.find('input');
+                    } else if (element.find('select').length > 0) {
+                        edit = element.find('select');
+                    }
 
-                if (element.find('input').length > 0) {
-                    edit = element.find('input');
-                } else if (element.find('select').length > 0) {
-                    edit = element.find('select');
-                }
+                    edit.on('focus', OnFocus);
+                    edit.on('blur', OnBlur);
+                    edit.on('change', OnChange);
 
-                edit.on('focus', OnFocus);
-                edit.on('blur', OnBlur);
-                edit.on('change', OnChange);
-
-                OnChange();
+                    OnChange();
+                });
             }
         };
     }]);

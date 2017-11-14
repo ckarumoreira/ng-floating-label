@@ -27,19 +27,19 @@
                         }
                     }
         
-                    debugger;
-                    
-                    if (element.find('input').length > 0) {
+                    element.ready(() => {
+                        if (element.find('input').length > 0) {
                         edit = element.find('input');
-                    } else if (element.find('select').length > 0) {
-                        edit = element.find('select');
-                    }
-                    
-                    edit.on('focus', OnFocus);
-                    edit.on('blur', OnBlur);
-                    edit.on('change', OnChange);
-
-                    OnChange();
+                        } else if (element.find('select').length > 0) {
+                            edit = element.find('select');
+                        }
+                        
+                        edit.on('focus', OnFocus);
+                        edit.on('blur', OnBlur);
+                        edit.on('change', OnChange);
+    
+                        OnChange(); 
+                    });
                 }
             };
         }
