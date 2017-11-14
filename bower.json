@@ -1,0 +1,23 @@
+{
+  "name": "ng-floating-label",
+  "description": "Material-like floating label angular directive.",
+  "main": "index.js",
+  "authors": [
+    "Carlos Moreira (ckarumoreira@gmail.com)"
+  ],
+  "license": "ISC",
+  "keywords": [
+    "floating-label",
+    "material-design",
+    "angular",
+    "directive"
+  ],
+  "homepage": "https://github.com/ckarumoreira/ng-floating-label",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
