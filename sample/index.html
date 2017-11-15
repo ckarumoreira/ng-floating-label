@@ -8,12 +8,23 @@
         </style>
     </head>
     <body ng-app="app">
-        <div ng-controller="Controller as ctrl">
+        <div ng-controller="Controller as ctrl" style="width: 200px;">
             <ng-floating-label placeholder="'Value A'">
                 <input type="text" ng-model="ctrl.value_a" />
             </ng-floating-label>
             <ng-floating-label placeholder="'Value B'">
                 <input type="text" ng-model="ctrl.value_b" />
+            </ng-floating-label>
+            <ng-floating-label placeholder="'Value C'">
+                <select ng-model="ctrl.value_c">
+                    <option ng-value="null"></option>
+                    <option ng-value="A">Value A</option>
+                    <option ng-value="B">Value B</option>
+                    <option ng-value="C">Value C</option>
+                </select>
+            </ng-floating-label>
+            <ng-floating-label placeholder="'Text Area'">
+                <textarea ng-model="ctrl.value_d" rows="1"></textarea>
             </ng-floating-label>
         </div>
         
@@ -24,6 +35,8 @@
             .controller("Controller", function ($scope) {
                 this.value_a = "Starting Value";
                 this.value_b = "";
+                this.value_c = "";
+                this.value_d = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis id felis leo. Mauris at fermentum tortor, vitae gravida arcu. Nullam dignissim velit sapien. Morbi ac est ultrices felis tristique tincidunt. Suspendisse in mattis nisi, nec suscipit lectus. Vivamus sit amet magna at urna sodales sodales. Sed sollicitudin interdum tellus ut accumsan.";
             })
         </script>
     </body>
